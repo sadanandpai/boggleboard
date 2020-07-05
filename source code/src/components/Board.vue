@@ -101,7 +101,7 @@ export default {
     <div class="inline-block">Columns: <input type="range" min="6" max="60" v-model="cols" /></div>
     <br /><br />
     <strong>Search text:</strong> <input type="text" v-model="searchText" v-bind:class="{ success: searchGridForWord }" />
-    <div v-if="isMobile"><button>Search</button></div>
+    <span v-if="isMobile"><button class="button button-search">Search</button></span>
     <br /><br />
     <div class="height-30px" v-for="i in +rows" :key="i">
       <div class="inline-block" v-for="j in +cols" :key="i + '' + j">
@@ -109,7 +109,7 @@ export default {
       </div>
     </div>
 
-    <button v-on:click="randomize" class="button">Randomize</button>
+    <button v-on:click="randomize" class="button button--random">Randomize</button>
   </div>
 </template>
 
@@ -123,14 +123,23 @@ div {
 .height-30px {
   height: 25px;
 }
+
 .button {
   background: black;
   color: white;
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
-  font-size: 15px;
   box-shadow: 2px 2px 6px 1px gray;
+}
+
+.button-random {
+  font-size: 15px;
+}
+
+.button-search{
+  padding: 5px;
+  font-size: 12px;
 }
 
 .success {
